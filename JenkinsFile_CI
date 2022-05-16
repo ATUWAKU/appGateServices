@@ -1,0 +1,35 @@
+pipeline {
+    agent any
+
+    stages {
+        stage('Descargar Fuentes') {
+            steps {
+				echo 'Incia Pipeline'
+                echo 'Descarga Repositorio'
+                checkout([$class: 'GitSCM', branches: [[name: '*/trunk']], extensions: [], userRemoteConfigs: [[credentialsId: 'GitHubAtuwaku', url: 'https://github.com/ATUWAKU/appGateServices.git']]])
+				echo 'Termina Descarga Repositorio'
+            }
+        }
+		stage('Compilacion'){
+			steps{
+				echo 'Inicia Compilacion'
+				echo 'Incia Comando Clean'
+				bat 'gradlew clean'
+				echo 'Termina Comando Clean'
+				echo 'Incia Comando build -x test'
+				bat 'gradlew build -x test'
+				echo 'Termina Comando build -x test'
+			}
+		}
+		stage('Analisis de codigo estatico'){
+			steps{
+				withCredentials([string(credentialsId: 'SONAR_TOKEN', variable: 'SONAR_TOKEN')]) {
+					echo 'Incia Análisis de Código Estático'                
+					bat 'gradlew sonarqube'	
+				}
+				echo 'Termina Análisis de Código Estático'
+				echo 'Termina Pipeline'
+			}
+		}
+    }
+}
