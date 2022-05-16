@@ -7,7 +7,6 @@ public class General {
     public final static String FRONTEND = "FRONTEND";
     public final static String USER_API = "atuwaku";
     public final static String RESPONSE = "Respuesta del llamado al servicio";
-    public final static int GMTCOL = -5;
 
 
 }
