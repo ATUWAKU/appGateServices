@@ -71,7 +71,7 @@ public class TimeZoneQueryStepDefinition {
     public void theServiceDisplays(ResponseData responseData) {
         theActorInTheSpotlight().should(seeThat(
                 Response.isequals(responseData), x -> x.equals(true)
-        ).orComplainWith(TimeZoneQueryException.class));
+        ).orComplainWith(TimeZoneQueryException.class, MSG));
 
     }
 }

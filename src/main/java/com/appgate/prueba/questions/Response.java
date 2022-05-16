@@ -8,6 +8,7 @@ import net.serenitybdd.screenplay.Question;
 import java.text.SimpleDateFormat;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
+import java.time.LocalTime;
 import java.time.format.DateTimeFormatter;
 import java.util.Calendar;
 import java.util.Date;
@@ -30,10 +31,14 @@ public class Response implements Question<Boolean> {
 
         switch (type){
             case SUNRISE:
-                expRespData.setSunrise(LocalDate.now().plusDays(1) + " " + expRespData.getSunrise().split(" ")[1]);
+                if(LocalTime.now().isAfter(LocalTime.parse("12:00"))) {
+                    expRespData.setSunrise(LocalDate.now().plusDays(1) + " " + expRespData.getSunrise().split(" ")[1]);
+                }
                 break;
             case SUNSET:
-                expRespData.setSunset(LocalDate.now().plusDays(1) + " " + expRespData.getSunset().split(" ")[1]);
+                if(LocalTime.now().isAfter(LocalTime.parse("12:00"))) {
+                    expRespData.setSunset(LocalDate.now().plusDays(1) + " " + expRespData.getSunset().split(" ")[1]);
+                }
                 break;
             case TIME:
                 expRespData.setTime(consultTime(expRespData.getTimezoneId()));
@@ -54,10 +59,12 @@ public class Response implements Question<Boolean> {
 
         obtRespData = actor.recall(RESPONSE);
         if(obtRespData.getResponseError().getMessage().equals("")) {
-//            modifyData(SUNRISE);
-//            modifyData(SUNSET);
+            modifyData(SUNRISE);
+            modifyData(SUNSET);
             modifyData(TIME);
         }
+
+
 
         return
                 obtRespData.getSunrise().equals(expRespData.getSunrise()) &&

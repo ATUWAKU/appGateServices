@@ -7,6 +7,7 @@ public class General {
     public final static String FRONTEND = "FRONTEND";
     public final static String USER_API = "atuwaku";
     public final static String RESPONSE = "Respuesta del llamado al servicio";
+    public static final String MSG = "La información de zona horaria no es correcta";
 
 
 }
