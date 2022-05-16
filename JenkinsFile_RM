@@ -9,7 +9,7 @@ pipeline {
 				bat 'gradlew clean build test aggregate'
             }
         }
-		stage{
+		stage('Enviar Email Resultados'){
 			steps{
 				emailext attachLog: true, body: 'Este es el resultado', compressLog: true, subject: 'Resultado RM appGateServices', to: 'david_muner@hotmail.com'
 			}
