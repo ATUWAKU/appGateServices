@@ -1,0 +1,41 @@
+buildscript {
+    repositories {
+        mavenCentral()
+    }
+    dependencies {
+        classpath "net.serenity-bdd:serenity-gradle-plugin:3.2.3"
+
+    }
+}
+
+plugins {
+    id 'java'
+    id "io.freefair.lombok" version "6.4.2"
+    id 'idea'
+    id "net.serenity-bdd.serenity-gradle-plugin" version "3.2.3"
+
+}
+
+group 'com.appgate.prueba'
+version '1.0'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    implementation 'net.serenity-bdd:serenity-core:3.2.3'
+    implementation 'net.serenity-bdd:serenity-junit:3.2.3'
+    implementation 'net.serenity-bdd:serenity-screenplay:3.2.3'
+    implementation 'net.serenity-bdd:serenity-cucumber:3.2.4'
+    implementation 'org.projectlombok:lombok:1.18.22'
+    implementation 'com.google.code.gson:gson:2.9.0'
+    implementation 'net.serenity-bdd:serenity-rest-assured:3.2.5'
+    implementation 'net.serenity-bdd:serenity-screenplay-rest:3.2.5'
+
+
+
+    testImplementation 'org.junit.jupiter:junit-jupiter-api:5.8.2'
+    testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.8.2'
+    testImplementation 'org.slf4j:slf4j-simple:1.7.36'
+}
