@@ -1,5 +1,6 @@
 package com.appgate.prueba.stepDefinitions;
 
+import com.appgate.prueba.exceptions.TimeZoneQueryException;
 import com.appgate.prueba.models.RequestData;
 import com.appgate.prueba.models.ResponseData;
 import com.appgate.prueba.questions.Response;
@@ -70,7 +71,7 @@ public class TimeZoneQueryStepDefinition {
     public void theServiceDisplays(ResponseData responseData) {
         theActorInTheSpotlight().should(seeThat(
                 Response.isequals(responseData), x -> x.equals(true)
-        ));
+        ).orComplainWith(TimeZoneQueryException.class));
 
     }
 }
