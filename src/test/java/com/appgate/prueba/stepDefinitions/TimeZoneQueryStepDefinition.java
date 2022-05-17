@@ -16,10 +16,12 @@ import net.serenitybdd.screenplay.rest.abilities.CallAnApi;
 
 import java.util.Map;
 
+import static com.appgate.prueba.exceptions.TimeZoneQueryException.MESSAGE;
 import static com.appgate.prueba.utils.constants.General.*;
 import static net.serenitybdd.screenplay.GivenWhenThen.seeThat;
 import static net.serenitybdd.screenplay.actors.OnStage.theActorCalled;
 import static net.serenitybdd.screenplay.actors.OnStage.theActorInTheSpotlight;
+import static org.hamcrest.Matchers.equalTo;
 
 public class TimeZoneQueryStepDefinition {
 
@@ -70,8 +72,8 @@ public class TimeZoneQueryStepDefinition {
     @Then("The service displays")
     public void theServiceDisplays(ResponseData responseData) {
         theActorInTheSpotlight().should(seeThat(
-                Response.isequals(responseData)
-        ).orComplainWith(TimeZoneQueryException.class));
+                Response.isequals(responseData), equalTo(true)
+        ).orComplainWith(TimeZoneQueryException.class, MESSAGE));
 
     }
 }
