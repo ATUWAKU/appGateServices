@@ -6,20 +6,20 @@ pipeline {
     stages {
         stage('Ejecucion') {
             steps {         
-				echo 'Inicia la ejecución'
+				echo 'Inicia la ejecucion'
 				bat 'gradlew clean build test aggregate'				
-				echo 'Termina Ejecución'
+				echo 'Termina Ejecucion'
             }
         }
 		stage('Email') {
 			steps {				
-				echo 'Inicia Envío de Email'
+				echo 'Inicia Envio de Email'
 				script {					
 					emailext body: '''Prueba de Correo''',					
 					subject: "Jenkins Email",
 					to: "david_muner@hotmail.com"
 				}
-				echo 'Termina Envío de Email'
+				echo 'Termina Envio de Email'
 			}
 		}		
     }
