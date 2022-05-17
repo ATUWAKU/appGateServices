@@ -5,22 +5,21 @@ pipeline {
 	}	
     stages {
         stage('Ejecucion') {
-            steps {                
-				bat 'gradlew clean build test aggregate'
+            steps {         
+				echo 'Inicia la ejecución'
+				bat 'gradlew clean build test aggregate'				
+				echo 'Termina Ejecución'
             }
         }
 		stage('Email') {
-			steps {
-				script {
-					def mailRecipients = 'david_muner@hotmail.com'
-					def jobName = currentBuild.fullDisplayName
-					emailext body: '''${SCRIPT, template="groovy-html.template"}''',
-					mimeType: 'text/html',
-					subject: "[Jenkins] ${jobName}",
-					to: "${mailRecipients}",
-					replyTo: "${mailRecipients}",
-					recipientProviders: [[$class: 'CulpritsRecipientProvider']]
+			steps {				
+				echo 'Inicia Envío de Email'
+				script {					
+					emailext body: '''Prueba de Correo''',					
+					subject: "Jenkins Email",
+					to: "$david_muner@hotmail.com"
 				}
+				echo 'Termina Envío de Email'
 			}
 		}		
     }
