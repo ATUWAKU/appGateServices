@@ -63,26 +63,6 @@ public class Response implements Question<Boolean> {
             modifyData(TIME);
         }
 
-        boolean b;
-
-        b = obtRespData.getSunrise().equals(expRespData.getSunrise()) &&
-                obtRespData.getLng().equals(expRespData.getLng()) &&
-                obtRespData.getCountryCode().equals(expRespData.getCountryCode()) &&
-                obtRespData.getGmtOffset().equals(expRespData.getGmtOffset()) &&
-                obtRespData.getRawOffset().equals(expRespData.getRawOffset()) &&
-                obtRespData.getSunset().equals(expRespData.getSunset()) &&
-                obtRespData.getTimezoneId().equals(expRespData.getTimezoneId()) &&
-                obtRespData.getDstOffset().equals(expRespData.getDstOffset()) &&
-                obtRespData.getCountryName().equals(expRespData.getCountryName()) &&
-                obtRespData.getTime().equals(expRespData.getTime()) &&
-                obtRespData.getLat().equals(expRespData.getLat());
-
-        if(!b){
-            System.out.println("MIERDA");
-        }
-
-
-
         return
                 obtRespData.getSunrise().equals(expRespData.getSunrise()) &&
                 obtRespData.getLng().equals(expRespData.getLng()) &&
