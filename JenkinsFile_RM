@@ -17,7 +17,7 @@ pipeline {
 				script {					
 					emailext body: '''Prueba de Correo''',					
 					subject: "Jenkins Email",
-					to: "$david_muner@hotmail.com"
+					to: "david_muner@hotmail.com"
 				}
 				echo 'Termina Envío de Email'
 			}
