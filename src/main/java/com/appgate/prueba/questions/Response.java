@@ -31,12 +31,12 @@ public class Response implements Question<Boolean> {
 
         switch (type){
             case SUNRISE:
-                if(LocalTime.now().isAfter(LocalTime.parse("15:00"))) {
+                if(LocalTime.now().isAfter(LocalTime.parse("17:00"))) {
                     expRespData.setSunrise(LocalDate.now().plusDays(1) + " " + obtRespData.getSunrise().split(" ")[1]);
                 }
                 break;
             case SUNSET:
-                if(LocalTime.now().isAfter(LocalTime.parse("15:00"))) {
+                if(LocalTime.now().isAfter(LocalTime.parse("17:00"))) {
                     expRespData.setSunset(LocalDate.now().plusDays(1) + " " + obtRespData.getSunset().split(" ")[1]);
                 }
                 break;
