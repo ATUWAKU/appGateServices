@@ -15,12 +15,9 @@ pipeline {
 			steps {				
 				echo 'Inicia Envio de Email'
 				script {					
-					emailext body: '''Prueba de Correo 
-					PROJECT_NAME: ${PROJECT_NAME} 
-					BUILD_NUMBER: ${BUILD_NUMBER} 
-					BUILD_STATUS: ${BUILD_STATUS} 
-					workspace: ${WORKSPACE}''',					
-					subject: "Jenkins Email",
+					emailext body: '''Se ha ejecutado el ${PROJECT_NAME}\n					
+					Resultado: ${BUILD_STATUS}''',					
+					subject: "Resultado ${PROJECT_NAME}",
 					to: "david_muner@hotmail.com"
 				}
 				echo 'Termina Envio de Email'
