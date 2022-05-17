@@ -2,19 +2,17 @@ pipeline {
     agent any
 	triggers {
 	  upstream 'appGateServices_CI'	
-	}
-	post { 
-		always{
-		// SIEMPRE LA SECCIÓN TIENCIA AJUSTE PARA EJECUTAR EN CUALQUIER ESTADO
-            emailext 
-			body: '''Prueba Envío Jenkins Body', subject: 'Prueba Envío Jenkins', to: 'david_muner@hotmail.com'from: 'david_muner@hotmail.com'''
-        }    
-    }
+	}	
     stages {
         stage('Ejecucion') {
             steps {                
 				bat 'gradlew clean build test aggregate'
             }
         }		
-    }	
+    }
+	post { 
+		always{		
+			emailext body: '''Prueba Envío Jenkins Body''', subject: '''Prueba Envío Jenkins''', to: '''david_muner@hotmail.com''',from: '''david_muner@hotmail.com'''
+		}    
+	}	
 }
