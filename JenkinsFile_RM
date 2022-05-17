@@ -15,7 +15,7 @@ pipeline {
 			steps {				
 				echo 'Inicia Envio de Email'
 				script {					
-					emailext body: '''Se ha ejecutado el ${PROJECT_NAME} \n					
+					emailext body: '''[Se ha ejecutado el] ${PROJECT_NAME}				
 					Resultado: ${BUILD_STATUS}''',					
 					subject: "[Resultado] ${PROJECT_NAME}",
 					to: "david_muner@hotmail.com"
