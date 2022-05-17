@@ -70,7 +70,7 @@ public class TimeZoneQueryStepDefinition {
     @Then("The service displays")
     public void theServiceDisplays(ResponseData responseData) {
         theActorInTheSpotlight().should(seeThat(
-                Response.isequals(responseData), x -> x.equals(true)
+                Response.isequals(responseData)
         ).orComplainWith(TimeZoneQueryException.class));
 
     }
