@@ -17,7 +17,7 @@ pipeline {
 				script {					
 					emailext body: '''Se ha ejecutado el ${PROJECT_NAME} \n					
 					Resultado: ${BUILD_STATUS}''',					
-					subject: "Resultado",
+					subject: "Resultado AppGateServices_RM",
 					to: "david_muner@hotmail.com"
 				}
 				echo 'Termina Envio de Email'
