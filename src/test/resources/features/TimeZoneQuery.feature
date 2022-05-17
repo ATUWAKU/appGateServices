@@ -13,7 +13,7 @@ Feature: As a QA
 
    Examples:
    |Latitude|Length   |Sunrise         |Lng     |Countrycode|Gmtoffset|Rawoffset|Sunset          |Timezoneid        |Dstoffset|Countryname|Time            |Lat    |Message                |Value|StatusCode|
-   |10.4352a|-84.2582x|                |        |           |         |         |                |                  | 	      |           |                |       |error parsing parameter|14   |200       |
+   |10.4352b|-84.2582x|                |        |           |         |         |                |                  | 	      |           |                |       |error parsing parameter|14   |200       |
    |10.4352a|-84.2582 |                |        |           |         |         |                |                  | 	      |           |                |       |error parsing parameter|14   |200       |
    |10.4352 |-84.2582c|                |        |           |         |         |                |                  | 	      |           |                |       |error parsing parameter|14   |200       |
    |        |         |                |        |           |         |         |                |                  | 	      |           |                |       |error parsing parameter|14   |200       |
