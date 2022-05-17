@@ -15,12 +15,13 @@ pipeline {
 			steps {				
 				echo 'Inicia Envio de Email'
 				script {					
-					emailext body: '''Prueba de Correo''',					
+					emailext body: '''Prueba de Correo PROJECT_NAME: ${PROJECT_NAME} BUILD_NUMBER: ${BUILD_NUMBER} BUILD_STATUS: ${BUILD_STATUS}''',					
 					subject: "Jenkins Email",
 					to: "david_muner@hotmail.com"
 				}
 				echo 'Termina Envio de Email'
 			}
-		}		
+		}
+		
     }
 }
