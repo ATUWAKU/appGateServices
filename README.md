@@ -35,7 +35,7 @@ Para correr la automatización de forma local se debe:
 
 ##Ejecución
 ###Datos para la ejecución
-Los datos para la ejecución los encuentra en cada uno de los archivos feature.
+Los datos para la ejecución los encuentra en cada uno de los feature.
 ```shell
 **NOTA**
   Los datos de entrada Sunrise y Sunset deben ser actualizados con las fechas del día en que se corra la automatización y las horas deben corresponder a Sunset y Sunrise reales para esas latitudes
