@@ -41,8 +41,11 @@ Los datos para la ejecución los encuentra en cada uno de los archivos feature.
   Los datos de entrada Sunrise y Sunset deben ser actualizados con las fechas del día en que se corra la automatización y las horas deben corresponder a Sunset y Sunrise reales para esas latitudes
 ```
 
-###Todos los test
+####Todos los test
 gradlew clen build test aggregate
+
+###Informe de resultados
+El informe de resultados lo encuentran en la carpeta donde está el proyecto en la ruta target\site\serenity\index.html
 
 ------------------------------------------------------
 #DevOps
